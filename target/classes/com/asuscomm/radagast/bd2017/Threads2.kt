@@ -1,7 +1,7 @@
 package com.asuscomm.radagast.bd2017
 
 fun main(args: Array<String>) {
-    Thread(Runnable {
+    Thread({
         println("Hello from thread #1")
     }).start()
 
