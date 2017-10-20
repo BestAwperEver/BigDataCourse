@@ -1,6 +1,6 @@
 package com.asuscomm.radagast.bd2017
-import java.io.*
-import java.util.Random
+import java.io.*;
+import java.util.Random;
 
 fun Int.bigEndianBytes() = 
     java.nio.ByteBuffer.allocate(java.lang.Integer.BYTES)
