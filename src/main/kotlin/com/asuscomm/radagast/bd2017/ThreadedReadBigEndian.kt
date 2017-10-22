@@ -31,25 +31,28 @@ class ReadThread(val threadIndex: Int) : Runnable {
 			}
 		}
 		
-		println("Max (${threadIndex}): ${min_ints[threadIndex]}");
-		println("Min (${threadIndex}): ${max_ints[threadIndex]}");
+		println("Min (${threadIndex}): ${min_ints[threadIndex]}");
+		println("Max (${threadIndex}): ${max_ints[threadIndex]}");
 		println("Sum (${threadIndex}): ${sums[threadIndex]}");
 		
     }
 }
 
 fun main (args: Array<String>) {
+	val startTime = System.nanoTime();
 	for (i in 0..threadNum-1) {
 		threads[i].start();
 	}
 	for (i in 0..threadNum-1) {
 		threads[i].join();
 	}
-	println("Max: ${min_ints.min()}");
-	println("Min: ${max_ints.max()}");
+	println("Min: ${min_ints.min()}");
+	println("Max: ${max_ints.max()}");
 	var sum: BigInteger = BigInteger.valueOf(0);
 	for (i in 0..threadNum-1) {
 		sum += sums[i];
 	}
 	println("Sum: ${sum}");
+	val endTime = System.nanoTime();
+	println("Took " + (endTime - startTime)/1000000 + " ms"); 
 }
